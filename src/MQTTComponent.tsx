@@ -1,26 +1,38 @@
 import { useState, useEffect } from "react";
 import mqtt from "mqtt";
 
-//public server
-const client = mqtt.connect("mqtt://test.mosquitto.org:8081", {
-  protocol: "mqtts",
-  clientId: "MiguelGarduno",
-});
-/*
-const client = mqtt.connect("mqtt://test.mosquitto.org:1883", {
-  clientId: "MiguelGarduno",
-}); */
+interface PropsMQTT {
+  path: string;
+  sensor: string;
+  url?: string;
+  clientIdBase?: string;
+}
 
-function MqttComp() {
+function MqttComp({
+  path,
+  sensor,
+  url = "mqtt://test.mosquitto.org:8081",
+  clientIdBase = "MiguelGarduno",
+}: PropsMQTT) {
   const [message, setMessage] = useState<string>("Nothing is published yet");
   const [topic, setTopic] = useState<string>("");
 
   useEffect(() => {
-    const topicName = "TEAM2/HomeX/dist";
+    const topicName = path;
 
-    // ensure we're subscribed (callback logs subscribe errors)
-    client.subscribe(topicName, (err) => {
-      if (err) console.error("MQTT subscribe error:", err);
+    // create a unique client per component instance so topics/clients don't conflict
+    const clientId = `${clientIdBase}-${Math.random()
+      .toString(16)
+      .slice(2, 8)}`;
+    const opts: any = { clientId };
+    if (url.includes(":8081")) opts.protocol = "mqtts";
+
+    const client = mqtt.connect(url, opts);
+
+    client.on("connect", () => {
+      client.subscribe(topicName, (err) => {
+        if (err) console.error("MQTT subscribe error:", err);
+      });
     });
 
     const handleMessage = (
@@ -34,18 +46,22 @@ function MqttComp() {
     };
 
     client.on("message", handleMessage);
+    client.on("error", (err) => console.error("MQTT client error:", err));
 
     return () => {
-      // clean up listener when component unmounts to avoid duplicate handlers
       client.off("message", handleMessage);
-      // we don't call client.end() here because other parts of the app
-      // may share the client; unsubscribing is optional.
+      try {
+        client.unsubscribe(topicName, () => {});
+      } catch {}
+      client.end(true);
     };
-  }, []);
+  }, [path, url, clientIdBase]);
 
   return (
     <>
-      <p>The message is {message}</p>
+      <p>
+        The {sensor} value is {message}
+      </p>
       <p>{topic ? <em>{topic}</em> : null}</p>
     </>
   );

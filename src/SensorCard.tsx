@@ -1,64 +1,20 @@
-// interface PropsForTheCard {
-//   cardTitle: string;
-//   descriptionText: string;
-//   value: string;
-//   imageURL: string;
-//   linkButton: string;
-//   imgSize?: number; // ⬅ tamaño controlable
-// }
-
-// const SensorCard = ({
-//   cardTitle,
-//   descriptionText,
-//   value,
-//   imageURL,
-//   linkButton,
-//   imgSize = 80, // tamaño por default
-// }: PropsForTheCard) => {
-//   return (
-//     <div className="card text-center p-3">
-//       <img
-//         src={imageURL}
-//         alt="sensor"
-//         className="mx-auto d-block sensor-img"
-//         style={{
-//           height: imgSize,
-//           width: imgSize,
-//           objectFit: "contain",
-//         }}
-//       />
-
-//       <div className="card-body">
-//         <h5 className="card-title">{cardTitle}</h5>
-//         <p className="card-text">
-//           {descriptionText}: {value}
-//         </p>
-//         <a href={linkButton} className="btn btn-primary">
-//           More details
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SensorCard;
-
 import { Link } from "react-router-dom";
+import type { ReactNode } from "react";
 
 interface PropsForTheCard {
   cardTitle: string;
-  descriptionText: string;
   value: string;
   imageURL: string;
   linkButton: string;
+  children?: ReactNode;
 }
 
 const SensorCard = ({
   cardTitle,
-  descriptionText,
   value,
   imageURL,
   linkButton,
+  children,
 }: PropsForTheCard) => {
   return (
     <div className="card text-center p-3">
@@ -70,14 +26,18 @@ const SensorCard = ({
         style={{
           width: "auto",
           objectFit: "contain",
+          height: "100px",
         }}
       />
 
       <div className="card-body">
         <h5 className="card-title">{cardTitle}</h5>
         <p className="card-text">
-          {descriptionText}: <strong>{value}</strong>
+          {!children ? <strong>{value}</strong> : null}
         </p>
+
+        {/* If a child component is provided (e.g. MqttComp), render it here */}
+        {children ? <div className="mt-2">{children}</div> : null}
 
         {/* Botón con React Router */}
         <Link to={linkButton} className="btn btn-primary">
