@@ -38,6 +38,7 @@ import MqttComp from "./MQTTComponent.tsx";
 
 // SENSORES (aquí agregas tus SensorPage_XXXX.tsx)
 import SensorPage_Temperatura from "./SensorPage_Temperatura.tsx";
+import SensorPage_Luz from "./SensorPage_Luz.tsx";
 
 import "bootstrap/dist/css/bootstrap.css";
 

@@ -46,7 +46,7 @@ export default function Grid() {
             descriptionText="Valor"
             value="60%"
             imageURL={lightIcon}
-            linkButton="/sensor/humedad"
+            linkButton="/sensor/luz"
             imgSize={110}    // ⬅ otro tamaño
           />
         </div>
