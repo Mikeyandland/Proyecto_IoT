@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -41,8 +40,6 @@ export default function Login() {
 
   return (
     <>
-      <Header />
-
       <div className="container mt-5" style={{ maxWidth: "500px" }}>
         <h2 className="text-center mb-4">Login</h2>
 

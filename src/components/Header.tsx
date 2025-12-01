@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../src/assets/logo.png";
-import "./Header.css";
+import logo from "../assets/logo.png";
+import "../styles/Header.css";
+import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
   return (
@@ -8,7 +9,6 @@ export const Header: React.FC = () => {
       <div className="w-100 bg-dark py-3">
         <div className="container">
           <div className="row align-items-center">
-            {/* LOGO */}
             <div className="col-lg-3 col-md-4 col-sm-6 mb-3 mb-sm-0 d-flex align-items-center">
               <a href="/" className="d-flex align-items-center">
                 <img
@@ -20,23 +20,20 @@ export const Header: React.FC = () => {
               </a>
             </div>
 
-            {/* LINKS DE NAVEGACIÓN */}
             <div className="col-lg-9 col-md-8 col-sm-6 d-flex justify-content-end">
               <nav className="d-flex gap-4 align-items-center header-nav">
-                <a href="/home" className="header-link">
+                <Link to="/home" className="header-link">
                   Home
-                </a>
-                <a href="/services" className="header-link">
-                  Services
-                </a>
-                <a href="/contact" className="header-link">
-                  Contact
-                </a>
-
-                {/* AGREGADO: LINK A USER */}
-                <a href="/user" className="header-link">
+                </Link>
+                <Link to="/user" className="header-link">
+                  Settings
+                </Link>
+                <Link to="/user" className="header-link">
+                  Stats
+                </Link>
+                <Link to="/user" className="header-link">
                   Profile
-                </a>
+                </Link>
               </nav>
             </div>
           </div>

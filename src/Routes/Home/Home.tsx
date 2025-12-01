@@ -1,12 +1,8 @@
-import { Header } from "./Header";
-import Grid from "./Grid";
+import Grid from "./components/Grid";
 
 export default function Home() {
   return (
     <>
-      {/* Header */}
-      <Header />
-
       {/* Hero Section (TAL CUAL ME LA DISTE, SIN CAMBIOS) */}
       <section
         style={{

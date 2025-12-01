@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
+import { useEffect, useState } from "react";
 
 export default function User() {
   const [user, setUser] = useState<any>(null);
@@ -14,7 +13,6 @@ export default function User() {
   if (!user) {
     return (
       <>
-        <Header />
         <div className="container mt-5">
           <h3>No user has been registered</h3>
         </div>
@@ -24,7 +22,6 @@ export default function User() {
 
   return (
     <>
-      <Header /> {/* ⬅️ AGREGADO */}
       <div className="container mt-5" style={{ maxWidth: "600px" }}>
         <h2 className="text-center mb-4">User's profile</h2>
 
@@ -47,7 +44,6 @@ export default function User() {
           </p>
 
           <hr />
-          <p className="text-muted">The info comes from Register.tsx.</p>
         </div>
       </div>
     </>
