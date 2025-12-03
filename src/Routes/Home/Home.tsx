@@ -1,3 +1,4 @@
+import Carousel from "./components/Carrussel";
 export default function Home() {
   return (
     <>
@@ -31,6 +32,11 @@ export default function Home() {
             Experience your house like never before
           </p>
         </div>
+      </section>
+      <section style={{ color: "black" }}>
+        <p style={{ margin: "5rem" }}></p>
+        <Carousel></Carousel>
+        <p style={{ margin: "3rem" }}></p>
       </section>
     </>
   );
