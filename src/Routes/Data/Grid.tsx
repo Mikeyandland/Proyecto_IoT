@@ -11,7 +11,7 @@ export default function Grid() {
               cardTitle="Temperature"
               value="yupi"
               imageURL="/src/assets/thermoIcon.png"
-              linkButton=""
+              linkButton="/sensors/temperature"
             >
               <MqttComp path="TEAM2/HomeX/temp" sensor="temperature"></MqttComp>
             </SensorCard>
@@ -21,7 +21,7 @@ export default function Grid() {
               cardTitle="Distance"
               value="yupi"
               imageURL="/src/assets/DistanceSensor.jpg"
-              linkButton=""
+              linkButton="/sensors/distance"
             >
               <MqttComp path="TEAM2/HomeX/dist" sensor="distance"></MqttComp>
             </SensorCard>
@@ -31,7 +31,7 @@ export default function Grid() {
               cardTitle="Pressure"
               value="yupi"
               imageURL="/src/assets/pressure.png"
-              linkButton=""
+              linkButton="/sensors/pressure"
             >
               <MqttComp path="TEAM2/HomeX/pres" sensor="pressure"></MqttComp>
             </SensorCard>
@@ -41,7 +41,7 @@ export default function Grid() {
               cardTitle="Light"
               value="yupi"
               imageURL="/src/assets/lightSensor.png"
-              linkButton=""
+              linkButton="/sensors/light"
             >
               <MqttComp path="TEAM2/HomeX/light" sensor="light"></MqttComp>
             </SensorCard>
@@ -51,7 +51,7 @@ export default function Grid() {
               cardTitle="Rain"
               value="yupi"
               imageURL="/src/assets/lluviaImage.jpg"
-              linkButton=""
+              linkButton="/sensors/rain"
             >
               <MqttComp path="TEAM2/HomeX/rain" sensor="rain"></MqttComp>
             </SensorCard>
@@ -61,7 +61,7 @@ export default function Grid() {
               cardTitle="Button"
               value="yupi"
               imageURL="/src/assets/button.png"
-              linkButton=""
+              linkButton="/sensors/button"
             >
               <MqttComp path="TEAM2/HomeX/button" sensor="button"></MqttComp>
             </SensorCard>
@@ -71,7 +71,7 @@ export default function Grid() {
               cardTitle="Ultra"
               value="yupi"
               imageURL="/src/assets/radar.png"
-              linkButton=""
+              linkButton="/sensors/ultra"
             >
               <MqttComp path="TEAM2/HomeX/ultra" sensor="ultra"></MqttComp>
             </SensorCard>

@@ -26,6 +26,17 @@ def get_conn():
         raise RuntimeError(f"Unable to connect to the database: {e}") from e
 
 
+@app.after_request
+def _add_cors_headers(response):
+    # Allow requests from the dev server or any host during development
+    response.headers.setdefault("Access-Control-Allow-Origin", "*")
+    response.headers.setdefault(
+        "Access-Control-Allow-Headers", "Content-Type,Authorization"
+    )
+    response.headers.setdefault("Access-Control-Allow-Methods", "GET,OPTIONS")
+    return response
+
+
 @app.route("/api/sensors/<sensor_id>/history")
 def sensor_history(sensor_id):
     limit = int(request.args.get("limit", 200))
