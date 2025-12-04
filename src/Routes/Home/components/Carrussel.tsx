@@ -1,4 +1,6 @@
 import img1 from "../../../assets/process1.jpg";
+import img2 from "../../../assets/process2.jpg";
+import img3 from "../../../assets/process3.jpg";
 
 interface CarouselProps {
   width?: number | string;
@@ -49,10 +51,10 @@ const Carousel = ({ width = 628, height = 328 }: CarouselProps) => {
           <img src={img1} style={imgStyle} className="d-block" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src={img1} style={imgStyle} className="d-block" alt="..." />
+          <img src={img2} style={imgStyle} className="d-block" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src={img1} style={imgStyle} className="d-block" alt="..." />
+          <img src={img3} style={imgStyle} className="d-block" alt="..." />
         </div>
       </div>
       <button

@@ -1,4 +1,5 @@
 import Grid from "./Grid";
+import StatsLedButton from "../../components/StatsLedButton";
 
 const Data = () => {
   return (
@@ -22,6 +23,7 @@ const Data = () => {
 
       <section className="mt-5">
         <Grid />
+        <StatsLedButton />
       </section>
     </>
   );

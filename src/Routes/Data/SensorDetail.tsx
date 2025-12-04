@@ -22,8 +22,10 @@ export default function SensorDetail() {
               Reload
             </button>
             <small className="text-muted">
-              Showing last {data.length} readings
+              {" "}
+              Showing last {data.length} readings{" "}
             </small>
+            {/* LED control moved to Stats page */}
           </div>
 
           <div>
